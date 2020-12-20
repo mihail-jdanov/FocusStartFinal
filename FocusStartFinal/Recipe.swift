@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe: Codable {
+class Recipe: Codable {
     
     let id: Int
     let name: String
@@ -18,6 +18,17 @@ struct Recipe: Codable {
     let cookingTime: Int
     let ingredients: [String]
     let steps: [String]
+    
+    var thumbnailData: Data?
+    
+    var isFavorite: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "FavoriteRecipe\(id)")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "FavoriteRecipe\(id)")
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case id

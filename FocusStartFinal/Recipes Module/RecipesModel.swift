@@ -10,8 +10,6 @@ import Foundation
 
 protocol IRecipesModel {
     
-    var thumbnailsData: [Int: Data] { get }
-    
     func getRecipes() -> [Recipe]
     func addObserver(_ observer: IRecipesModelObserver)
     func removeObserver(_ observer: IRecipesModelObserver)
@@ -20,7 +18,7 @@ protocol IRecipesModel {
 
 protocol IRecipesModelObserver: AnyObject {
     
-    func recipesUpdated()
+    func recipesModelUpdated()
     
 }
 
@@ -30,32 +28,25 @@ final class RecipesModel: IRecipesModel {
     
     static let shared = RecipesModel()
     
-    // MARK: - Properties
-    
-    var thumbnailsData: [Int: Data] = [:] {
-        didSet {
-            notifyObserversRecipesUpdated()
-        }
-    }
-    
     // MARK: - Private properties
     
     private let recipesUrl = URL(string: "http://m90595w5.bget.ru/recipes.json")
     private let observers = NSHashTable<AnyObject>.weakObjects()
+    private let fetchRetryinterval: TimeInterval = 3
     
     private var isFetchInProgress = false
     private var isFetchCompleted = false
     
-    private lazy var urlSession: URLSession = {
+    private var urlSession: URLSession {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = ["User-Agent": "Mozilla/5.0"]
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         return URLSession(configuration: configuration)
-    }()
+    }
     
     private var recipes: [Recipe] = [] {
         didSet {
-            notifyObserversRecipesUpdated()
+            notifyObserversModelUpdated()
             loadThumbnails()
         }
     }
@@ -109,21 +100,31 @@ final class RecipesModel: IRecipesModel {
                 print("Error fetching recipes: no data")
             }
             self.isFetchInProgress = false
+            self.retryFetchRecipesIfNeeded()
         }.resume()
     }
     
-    private func loadThumbnails() {
-        recipes.forEach { recipe in
-            guard thumbnailsData[recipe.id] == nil,
-                let data = try? Data(contentsOf: recipe.thumbnailUrl) else { return }
-            thumbnailsData[recipe.id] = data
+    private func retryFetchRecipesIfNeeded() {
+        guard recipes.isEmpty else { return }
+        DispatchQueue.global().asyncAfter(deadline: .now() + fetchRetryinterval) {
+            self.fetchRecipes()
         }
     }
     
-    private func notifyObserversRecipesUpdated() {
+    private func loadThumbnails() {
+        DispatchQueue.global().async {
+            for recipe in self.recipes {
+                guard recipe.thumbnailData == nil else { continue }
+                recipe.thumbnailData = try? Data(contentsOf: recipe.thumbnailUrl)
+            }
+            self.notifyObserversModelUpdated()
+        }
+    }
+    
+    private func notifyObserversModelUpdated() {
         DispatchQueue.main.async {
             self.observers.allObjects.forEach { object in
-                (object as? IRecipesModelObserver)?.recipesUpdated()
+                (object as? IRecipesModelObserver)?.recipesModelUpdated()
             }
         }
     }

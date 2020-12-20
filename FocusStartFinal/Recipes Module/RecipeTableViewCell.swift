@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeTableViewCell: UITableViewCell {
+final class RecipeTableViewCell: UITableViewCell {
     
     private enum Constants {
         static let smallSpacing: CGFloat = 8
@@ -28,8 +28,9 @@ class RecipeTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .title3)
+        label.font = .preferredFont(forTextStyle: .headline)
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

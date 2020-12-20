@@ -18,4 +18,12 @@ final class ModuleBuilder {
         return viewController
     }
     
+    static func createRecipeModule(with recipe: Recipe) -> UIViewController {
+        let model = RecipeModel(recipe)
+        let presenter = RecipePresenter(model: model)
+        let viewController = RecipeViewController(presenter: presenter)
+        presenter.view = viewController
+        return viewController
+    }
+    
 }

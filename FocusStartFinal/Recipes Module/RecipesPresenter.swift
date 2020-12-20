@@ -13,7 +13,6 @@ protocol IRecipesPresenter {
     init(model: IRecipesModel)
     
     var recipes: [Recipe] { get }
-    var thumbnailsData: [Int: Data] { get }
     
 }
 
@@ -25,10 +24,6 @@ final class RecipesPresenter: IRecipesPresenter {
     
     var recipes: [Recipe] {
         return model.getRecipes()
-    }
-    
-    var thumbnailsData: [Int: Data] {
-        return model.thumbnailsData
     }
     
     // MARK: - Private properties
@@ -46,7 +41,7 @@ final class RecipesPresenter: IRecipesPresenter {
 
 extension RecipesPresenter: IRecipesModelObserver {
     
-    func recipesUpdated() {
+    func recipesModelUpdated() {
         view?.reloadContent()
     }
     

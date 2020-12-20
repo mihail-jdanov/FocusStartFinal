@@ -36,7 +36,6 @@ final class RecipesViewController: UIViewController, IRecipesView {
         tableView.rowHeight = Constants.rowHeight
         tableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.className)
         tableView.tableFooterView = UIView()
-        tableView.alpha = 0
         return tableView
     }()
     
@@ -95,6 +94,9 @@ final class RecipesViewController: UIViewController, IRecipesView {
 extension RecipesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = presenter.recipes[indexPath.row]
+        let nextModule = ModuleBuilder.createRecipeModule(with: recipe)
+        navigationController?.pushViewController(nextModule, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -110,9 +112,8 @@ extension RecipesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.className, for: indexPath)
         guard let recipeTableViewCell = cell as? RecipeTableViewCell else { return cell }
         let recipe = presenter.recipes[indexPath.row]
-        let thumbnailData = presenter.thumbnailsData[recipe.id]
         var thumbnail: UIImage?
-        if let data = thumbnailData {
+        if let data = recipe.thumbnailData {
             thumbnail = UIImage(data: data)
         }
         recipeTableViewCell.configure(image: thumbnail, title: recipe.name, description: recipe.description)

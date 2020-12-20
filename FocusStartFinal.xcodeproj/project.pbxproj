@@ -11,12 +11,16 @@
 		87018AA02585EE6100D53BD4 /* RecipesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87018A9F2585EE6100D53BD4 /* RecipesModel.swift */; };
 		87018AA625861C4E00D53BD4 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87018AA525861C4E00D53BD4 /* ModuleBuilder.swift */; };
 		87018AAD25861EFB00D53BD4 /* RecipesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87018AAC25861EFB00D53BD4 /* RecipesPresenter.swift */; };
+		877D84A1258F47B2006453C1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D84A0258F47B2006453C1 /* UIColor.swift */; };
+		877D84A5258FBB34006453C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877D84A4258FBB34006453C1 /* Assets.xcassets */; };
 		87B91BE32586503500C932F1 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BE22586503500C932F1 /* RecipeTableViewCell.swift */; };
 		87B91BE72586521200C932F1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BE62586521200C932F1 /* UIView.swift */; };
 		87B91BEE258664AE00C932F1 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BED258664AE00C932F1 /* NSObject.swift */; };
+		87B91BF3258F091000C932F1 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BF2258F091000C932F1 /* RecipeViewController.swift */; };
+		87B91BFE258F325800C932F1 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BFD258F325800C932F1 /* RecipePresenter.swift */; };
+		87B91C01258F32EB00C932F1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91C00258F32EB00C932F1 /* RecipeModel.swift */; };
 		87E6B8482585E7AF000455BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B8472585E7AF000455BF /* AppDelegate.swift */; };
 		87E6B84A2585E7AF000455BF /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B8492585E7AF000455BF /* RecipesViewController.swift */; };
-		87E6B84F2585E7AF000455BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B84E2585E7AF000455BF /* Assets.xcassets */; };
 		87E6B8522585E7AF000455BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B8502585E7AF000455BF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -25,13 +29,17 @@
 		87018A9F2585EE6100D53BD4 /* RecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesModel.swift; sourceTree = "<group>"; };
 		87018AA525861C4E00D53BD4 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		87018AAC25861EFB00D53BD4 /* RecipesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesPresenter.swift; sourceTree = "<group>"; };
+		877D84A0258F47B2006453C1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		877D84A4258FBB34006453C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87B91BE22586503500C932F1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		87B91BE62586521200C932F1 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		87B91BED258664AE00C932F1 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		87B91BF2258F091000C932F1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		87B91BFD258F325800C932F1 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
+		87B91C00258F32EB00C932F1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		87E6B8442585E7AF000455BF /* FocusStartFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusStartFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E6B8472585E7AF000455BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87E6B8492585E7AF000455BF /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
-		87E6B84E2585E7AF000455BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87E6B8512585E7AF000455BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87E6B8532585E7AF000455BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,11 +58,10 @@
 		87018AA925861E6500D53BD4 /* Recipes Module */ = {
 			isa = PBXGroup;
 			children = (
-				87E6B8492585E7AF000455BF /* RecipesViewController.swift */,
 				87018A9F2585EE6100D53BD4 /* RecipesModel.swift */,
-				87018A9C2585EC4000D53BD4 /* Recipe.swift */,
-				87018AAC25861EFB00D53BD4 /* RecipesPresenter.swift */,
+				87E6B8492585E7AF000455BF /* RecipesViewController.swift */,
 				87B91BE22586503500C932F1 /* RecipeTableViewCell.swift */,
+				87018AAC25861EFB00D53BD4 /* RecipesPresenter.swift */,
 			);
 			path = "Recipes Module";
 			sourceTree = "<group>";
@@ -64,8 +71,19 @@
 			children = (
 				87B91BE62586521200C932F1 /* UIView.swift */,
 				87B91BED258664AE00C932F1 /* NSObject.swift */,
+				877D84A0258F47B2006453C1 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		87B91BF1258F05AB00C932F1 /* Recipe Module */ = {
+			isa = PBXGroup;
+			children = (
+				87B91C00258F32EB00C932F1 /* RecipeModel.swift */,
+				87B91BF2258F091000C932F1 /* RecipeViewController.swift */,
+				87B91BFD258F325800C932F1 /* RecipePresenter.swift */,
+			);
+			path = "Recipe Module";
 			sourceTree = "<group>";
 		};
 		87E6B83B2585E7AE000455BF = {
@@ -91,9 +109,11 @@
 				87E6B8472585E7AF000455BF /* AppDelegate.swift */,
 				87018AA525861C4E00D53BD4 /* ModuleBuilder.swift */,
 				87018AA925861E6500D53BD4 /* Recipes Module */,
-				87E6B84E2585E7AF000455BF /* Assets.xcassets */,
+				87B91BF1258F05AB00C932F1 /* Recipe Module */,
+				87018A9C2585EC4000D53BD4 /* Recipe.swift */,
 				87E6B8502585E7AF000455BF /* LaunchScreen.storyboard */,
 				87E6B8532585E7AF000455BF /* Info.plist */,
+				877D84A4258FBB34006453C1 /* Assets.xcassets */,
 			);
 			path = FocusStartFinal;
 			sourceTree = "<group>";
@@ -137,10 +157,10 @@
 			};
 			buildConfigurationList = 87E6B83F2585E7AE000455BF /* Build configuration list for PBXProject "FocusStartFinal" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ru,
 				Base,
 			);
 			mainGroup = 87E6B83B2585E7AE000455BF;
@@ -158,8 +178,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877D84A5258FBB34006453C1 /* Assets.xcassets in Resources */,
 				87E6B8522585E7AF000455BF /* LaunchScreen.storyboard in Resources */,
-				87E6B84F2585E7AF000455BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +192,14 @@
 			files = (
 				87B91BE72586521200C932F1 /* UIView.swift in Sources */,
 				87018AAD25861EFB00D53BD4 /* RecipesPresenter.swift in Sources */,
+				87B91BFE258F325800C932F1 /* RecipePresenter.swift in Sources */,
 				87018A9D2585EC4000D53BD4 /* Recipe.swift in Sources */,
 				87B91BEE258664AE00C932F1 /* NSObject.swift in Sources */,
+				87B91C01258F32EB00C932F1 /* RecipeModel.swift in Sources */,
+				87B91BF3258F091000C932F1 /* RecipeViewController.swift in Sources */,
 				87018AA02585EE6100D53BD4 /* RecipesModel.swift in Sources */,
 				87B91BE32586503500C932F1 /* RecipeTableViewCell.swift in Sources */,
+				877D84A1258F47B2006453C1 /* UIColor.swift in Sources */,
 				87E6B84A2585E7AF000455BF /* RecipesViewController.swift in Sources */,
 				87018AA625861C4E00D53BD4 /* ModuleBuilder.swift in Sources */,
 				87E6B8482585E7AF000455BF /* AppDelegate.swift in Sources */,
