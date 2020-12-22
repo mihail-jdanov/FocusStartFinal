@@ -14,8 +14,9 @@ final class ModuleBuilder {
         let model = RecipesModel.shared
         let presenter = RecipesPresenter(model: model)
         let viewController = RecipesViewController(presenter: presenter)
+        let navigationController = UINavigationController(rootViewController: viewController)
         presenter.view = viewController
-        return viewController
+        return navigationController
     }
     
     static func createRecipeModule(with recipe: Recipe) -> UIViewController {
@@ -24,6 +25,15 @@ final class ModuleBuilder {
         let viewController = RecipeViewController(presenter: presenter)
         presenter.view = viewController
         return viewController
+    }
+    
+    static func createFavoritesModule() -> UIViewController {
+        let model = RecipesModel.shared
+        let presenter = FavoritesPresenter(model: model)
+        let viewController = FavoritesViewController(presenter: presenter)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        presenter.view = viewController
+        return navigationController
     }
     
 }

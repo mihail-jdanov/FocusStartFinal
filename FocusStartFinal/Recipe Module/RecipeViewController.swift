@@ -34,6 +34,8 @@ final class RecipeViewController: UIViewController, IRecipeView {
     
     private let presenter: IRecipePresenter
     
+    private var isNeedsToAnimate = true
+    
     private var favoritesImage: UIImage? {
         return presenter.recipe.isFavorite ? UIImage(named: "FavoriteOn") : UIImage(named: "FavoriteOff")
     }
@@ -59,9 +61,10 @@ final class RecipeViewController: UIViewController, IRecipeView {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0
         if let data = presenter.recipe.thumbnailData {
             imageView.image = UIImage(data: data)
-            activityIndicator.stopAnimating()
+            hideActivityIndicator()
         }
         return imageView
     }()
@@ -147,7 +150,7 @@ final class RecipeViewController: UIViewController, IRecipeView {
     func updateImage() {
         if let data = presenter.recipeImageData {
             headerImageView.image = UIImage(data: data)
-            activityIndicator.stopAnimating()
+            hideActivityIndicator()
         }
     }
     
@@ -157,12 +160,26 @@ final class RecipeViewController: UIViewController, IRecipeView {
     
     // MARK: - Private methods
     
+    private func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            guard let _ = self.headerImageView.image else { return }
+            UIView.animate(withDuration: Constants.animationDuration) {
+                self.headerImageView.alpha = 1
+                self.activityIndicator.alpha = 0
+            } completion: { _ in
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
     private func startAnimation() {
+        guard isNeedsToAnimate else { return }
+        isNeedsToAnimate = false
         var views = [descriptionLabel, cookingTimeLabel, ingredientsLabel, ingredientsTableView, stepsTitleLabel]
         views.append(contentsOf: stepsLabels)
         views.forEach { $0.alpha = 0 }
         let millisecondsPerSecond = 1000000
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .userInteractive).async {
             views.forEach { view in
                 usleep(useconds_t(Constants.animationDelay * Double(millisecondsPerSecond)))
                 DispatchQueue.main.async {
@@ -183,6 +200,8 @@ final class RecipeViewController: UIViewController, IRecipeView {
 
 extension RecipeViewController: UITableViewDelegate {
     
+    // MARK: - UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let separatorView = UIView()
         separatorView.backgroundColor = Constants.separatorColor
@@ -196,6 +215,8 @@ extension RecipeViewController: UITableViewDelegate {
 }
 
 extension RecipeViewController: UITableViewDataSource {
+    
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {

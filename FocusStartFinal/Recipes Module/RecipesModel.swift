@@ -10,6 +10,8 @@ import Foundation
 
 protocol IRecipesModel {
     
+    var isFetchCompleted: Bool { get }
+    
     func getRecipes() -> [Recipe]
     func addObserver(_ observer: IRecipesModelObserver)
     func removeObserver(_ observer: IRecipesModelObserver)
@@ -28,6 +30,10 @@ final class RecipesModel: IRecipesModel {
     
     static let shared = RecipesModel()
     
+    // MARK: - Properties
+    
+    private(set) var isFetchCompleted = false
+    
     // MARK: - Private properties
     
     private let recipesUrl = URL(string: "http://m90595w5.bget.ru/recipes.json")
@@ -35,7 +41,6 @@ final class RecipesModel: IRecipesModel {
     private let fetchRetryinterval: TimeInterval = 3
     
     private var isFetchInProgress = false
-    private var isFetchCompleted = false
     
     private var urlSession: URLSession {
         let configuration = URLSessionConfiguration.default
@@ -106,13 +111,13 @@ final class RecipesModel: IRecipesModel {
     
     private func retryFetchRecipesIfNeeded() {
         guard recipes.isEmpty else { return }
-        DispatchQueue.global().asyncAfter(deadline: .now() + fetchRetryinterval) {
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + fetchRetryinterval) {
             self.fetchRecipes()
         }
     }
     
     private func loadThumbnails() {
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .background).async {
             for recipe in self.recipes {
                 guard recipe.thumbnailData == nil else { continue }
                 recipe.thumbnailData = try? Data(contentsOf: recipe.thumbnailUrl)

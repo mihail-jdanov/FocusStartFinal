@@ -19,6 +19,8 @@
 		87B91BF3258F091000C932F1 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BF2258F091000C932F1 /* RecipeViewController.swift */; };
 		87B91BFE258F325800C932F1 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91BFD258F325800C932F1 /* RecipePresenter.swift */; };
 		87B91C01258F32EB00C932F1 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B91C00258F32EB00C932F1 /* RecipeModel.swift */; };
+		87D242392590FCD1000FC8E8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D242382590FCD1000FC8E8 /* FavoritesPresenter.swift */; };
+		87D2423D2590FDCD000FC8E8 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2423C2590FDCD000FC8E8 /* FavoritesViewController.swift */; };
 		87E6B8482585E7AF000455BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B8472585E7AF000455BF /* AppDelegate.swift */; };
 		87E6B84A2585E7AF000455BF /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B8492585E7AF000455BF /* RecipesViewController.swift */; };
 		87E6B8522585E7AF000455BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B8502585E7AF000455BF /* LaunchScreen.storyboard */; };
@@ -37,6 +39,8 @@
 		87B91BF2258F091000C932F1 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		87B91BFD258F325800C932F1 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
 		87B91C00258F32EB00C932F1 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		87D242382590FCD1000FC8E8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		87D2423C2590FDCD000FC8E8 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		87E6B8442585E7AF000455BF /* FocusStartFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusStartFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E6B8472585E7AF000455BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87E6B8492585E7AF000455BF /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = "Recipe Module";
 			sourceTree = "<group>";
 		};
+		87D242372590FCAB000FC8E8 /* Favorites Module */ = {
+			isa = PBXGroup;
+			children = (
+				87D2423C2590FDCD000FC8E8 /* FavoritesViewController.swift */,
+				87D242382590FCD1000FC8E8 /* FavoritesPresenter.swift */,
+			);
+			path = "Favorites Module";
+			sourceTree = "<group>";
+		};
 		87E6B83B2585E7AE000455BF = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +123,7 @@
 				87018AA525861C4E00D53BD4 /* ModuleBuilder.swift */,
 				87018AA925861E6500D53BD4 /* Recipes Module */,
 				87B91BF1258F05AB00C932F1 /* Recipe Module */,
+				87D242372590FCAB000FC8E8 /* Favorites Module */,
 				87018A9C2585EC4000D53BD4 /* Recipe.swift */,
 				87E6B8502585E7AF000455BF /* LaunchScreen.storyboard */,
 				87E6B8532585E7AF000455BF /* Info.plist */,
@@ -196,12 +210,14 @@
 				87018A9D2585EC4000D53BD4 /* Recipe.swift in Sources */,
 				87B91BEE258664AE00C932F1 /* NSObject.swift in Sources */,
 				87B91C01258F32EB00C932F1 /* RecipeModel.swift in Sources */,
+				87D242392590FCD1000FC8E8 /* FavoritesPresenter.swift in Sources */,
 				87B91BF3258F091000C932F1 /* RecipeViewController.swift in Sources */,
 				87018AA02585EE6100D53BD4 /* RecipesModel.swift in Sources */,
 				87B91BE32586503500C932F1 /* RecipeTableViewCell.swift in Sources */,
 				877D84A1258F47B2006453C1 /* UIColor.swift in Sources */,
 				87E6B84A2585E7AF000455BF /* RecipesViewController.swift in Sources */,
 				87018AA625861C4E00D53BD4 /* ModuleBuilder.swift in Sources */,
+				87D2423D2590FDCD000FC8E8 /* FavoritesViewController.swift in Sources */,
 				87E6B8482585E7AF000455BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

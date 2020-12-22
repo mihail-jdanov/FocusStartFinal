@@ -42,6 +42,9 @@ final class RecipePresenter: IRecipePresenter {
         if hours == 0 {
             return "\(minutes) мин"
         }
+        if minutes == 0 {
+            return "\(hours) ч"
+        }
         return "\(hours) ч \(minutes) мин"
     }
     
@@ -66,6 +69,8 @@ final class RecipePresenter: IRecipePresenter {
 }
 
 extension RecipePresenter: IRecipeModelObserver {
+    
+    // MARK: - IRecipeModelObserver
     
     func recipeModelUpdated() {
         view?.updateImage()

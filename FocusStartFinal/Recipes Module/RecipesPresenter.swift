@@ -41,6 +41,8 @@ final class RecipesPresenter: IRecipesPresenter {
 
 extension RecipesPresenter: IRecipesModelObserver {
     
+    // MARK: - IRecipesModelObserver
+    
     func recipesModelUpdated() {
         view?.reloadContent()
     }

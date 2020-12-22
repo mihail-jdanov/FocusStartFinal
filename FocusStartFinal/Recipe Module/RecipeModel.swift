@@ -32,7 +32,7 @@ final class RecipeModel: IRecipeModel {
     
     let recipe: Recipe
     
-    var recipeImageData: Data?
+    private(set) var recipeImageData: Data?
     
     // MARK: - Private properties
     
@@ -58,7 +58,7 @@ final class RecipeModel: IRecipeModel {
     // MARK: - Private methods
     
     private func loadRecipeImageData() {
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .background).async {
             self.recipeImageData = try? Data(contentsOf: self.recipe.imageUrl)
             self.notifyObserversModelUpdated()
         }
